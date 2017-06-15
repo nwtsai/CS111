@@ -1,0 +1,158 @@
+Total: 1066 samples
+     397  37.2%  37.2%      518  48.6% spinLookupDelete
+     393  36.9%  74.1%      545  51.1% spinInsert
+     211  19.8%  93.9%      211  19.8% __strcmp_sse42
+      29   2.7%  96.6%      152  14.3% SortedList_insert
+      24   2.3%  98.9%      121  11.4% SortedList_lookup
+       9   0.8%  99.7%        9   0.8% _init
+       2   0.2%  99.9%        3   0.3% spinAddLengths
+       1   0.1% 100.0%        1   0.1% SortedList_length
+       0   0.0% 100.0%     1066 100.0% __clone
+       0   0.0% 100.0%     1066 100.0% start_thread
+       0   0.0% 100.0%     1066 100.0% worker
+ROUTINE ====================== worker in /u/cs/ugrad/tsain/CS111/lab_2b/lab2_list.c
+     0   1066 Total samples (flat / cumulative)
+     .      .  477:   __sync_lock_release(&spin_locks[list_index[i]]);
+     .      .  478: }
+     .      .  479: 
+     .      .  480: // Worker thread algorithm
+     .      .  481: void* worker(void* thread_id)
+---
+     .      .  482: {
+     .      .  483:   // Convert the argument to an int
+     .      .  484:   int thread_int = *(int*)thread_id;
+     .      .  485: 
+     .      .  486:   // Re-usable counter for the for loops
+     .      .  487:   int i;
+     .      .  488: 
+     .      .  489:   // Insert an element into the list
+     .      .  490:   for(i = thread_int; i < run_count; i += thread_count)
+     .      .  491:   {
+     .      .  492:     if(sync_option == 'm')
+     .      .  493:       lockInsert(i, thread_int);
+     .      .  494:     else if(sync_option == 's')
+     .    545  495:       spinInsert(i, thread_int);
+     .      .  496:     else
+     .      .  497:       SortedList_insert(&lists[list_index[i]], &list_elements[i]);
+     .      .  498:   }
+     .      .  499: 
+     .      .  500:   // Get the total list length
+     .      .  501:   list_length = 0;
+     .      .  502:   for(i = 0; i < list_count; i++)
+     .      .  503:   {
+     .      .  504:     if(sync_option == 'm')
+     .      .  505:       lockAddLengths(i, thread_int);
+     .      .  506:     else if(sync_option == 's')
+     .      3  507:       spinAddLengths(i, thread_int);
+     .      .  508:     else
+     .      .  509:       list_length += SortedList_length(&lists[i]);
+     .      .  510:   }
+     .      .  511:   
+     .      .  512:   // Lookup and remove elements from the list
+     .      .  513:   for(i = thread_int; i < run_count; i += thread_count)
+     .      .  514:   {
+     .      .  515:     if(sync_option == 'm')
+     .      .  516:       lockLookupDelete(i, thread_int);
+     .      .  517:     else if(sync_option == 's')
+     .    518  518:       spinLookupDelete(i, thread_int);
+     .      .  519:     else
+     .      .  520:     {
+     .      .  521:       // Look up an element
+     .      .  522:       SortedListElement_t* element = SortedList_lookup(&lists[list_index[i]], list_elements[i].key);
+     .      .  523:       if(element == NULL)
+     .      .  524:       {
+     .      .  525:         fprintf(stderr, "Error: Unable to look up element\n");
+     .      .  526:         exit(2);
+     .      .  527:       }
+     .      .  528: 
+     .      .  529:       // Delete the element
+     .      .  530:       int deleteStatus = SortedList_delete(element);
+     .      .  531:       if(deleteStatus != 0)
+     .      .  532:       {
+     .      .  533:         fprintf(stderr, "Error: Unable to delete element\n");
+     .      .  534:         exit(2);
+     .      .  535:       }
+     .      .  536:     }
+     .      .  537:   }
+     .      .  538: 
+     .      .  539:   return NULL;
+     .      .  540: }
+---
+     .      .  541: 
+     .      .  542: // Grab the name of the test based on user options
+     .      .  543: char* getTestName()
+     .      .  544: {
+     .      .  545:   // Return value
+ROUTINE ====================== worker in /u/cs/ugrad/tsain/CS111/lab_2b/lab2_list.c
+     0   1066 Total samples (flat / cumulative)
+     .      .  477:   __sync_lock_release(&spin_locks[list_index[i]]);
+     .      .  478: }
+     .      .  479: 
+     .      .  480: // Worker thread algorithm
+     .      .  481: void* worker(void* thread_id)
+---
+     .      .  482: {
+     .      .  483:   // Convert the argument to an int
+     .      .  484:   int thread_int = *(int*)thread_id;
+     .      .  485: 
+     .      .  486:   // Re-usable counter for the for loops
+     .      .  487:   int i;
+     .      .  488: 
+     .      .  489:   // Insert an element into the list
+     .      .  490:   for(i = thread_int; i < run_count; i += thread_count)
+     .      .  491:   {
+     .      .  492:     if(sync_option == 'm')
+     .      .  493:       lockInsert(i, thread_int);
+     .      .  494:     else if(sync_option == 's')
+     .    545  495:       spinInsert(i, thread_int);
+     .      .  496:     else
+     .      .  497:       SortedList_insert(&lists[list_index[i]], &list_elements[i]);
+     .      .  498:   }
+     .      .  499: 
+     .      .  500:   // Get the total list length
+     .      .  501:   list_length = 0;
+     .      .  502:   for(i = 0; i < list_count; i++)
+     .      .  503:   {
+     .      .  504:     if(sync_option == 'm')
+     .      .  505:       lockAddLengths(i, thread_int);
+     .      .  506:     else if(sync_option == 's')
+     .      3  507:       spinAddLengths(i, thread_int);
+     .      .  508:     else
+     .      .  509:       list_length += SortedList_length(&lists[i]);
+     .      .  510:   }
+     .      .  511:   
+     .      .  512:   // Lookup and remove elements from the list
+     .      .  513:   for(i = thread_int; i < run_count; i += thread_count)
+     .      .  514:   {
+     .      .  515:     if(sync_option == 'm')
+     .      .  516:       lockLookupDelete(i, thread_int);
+     .      .  517:     else if(sync_option == 's')
+     .    518  518:       spinLookupDelete(i, thread_int);
+     .      .  519:     else
+     .      .  520:     {
+     .      .  521:       // Look up an element
+     .      .  522:       SortedListElement_t* element = SortedList_lookup(&lists[list_index[i]], list_elements[i].key);
+     .      .  523:       if(element == NULL)
+     .      .  524:       {
+     .      .  525:         fprintf(stderr, "Error: Unable to look up element\n");
+     .      .  526:         exit(2);
+     .      .  527:       }
+     .      .  528: 
+     .      .  529:       // Delete the element
+     .      .  530:       int deleteStatus = SortedList_delete(element);
+     .      .  531:       if(deleteStatus != 0)
+     .      .  532:       {
+     .      .  533:         fprintf(stderr, "Error: Unable to delete element\n");
+     .      .  534:         exit(2);
+     .      .  535:       }
+     .      .  536:     }
+     .      .  537:   }
+     .      .  538: 
+     .      .  539:   return NULL;
+     .      .  540: }
+---
+     .      .  541: 
+     .      .  542: // Grab the name of the test based on user options
+     .      .  543: char* getTestName()
+     .      .  544: {
+     .      .  545:   // Return value

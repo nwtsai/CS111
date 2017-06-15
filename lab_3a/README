@@ -1,0 +1,18 @@
+NAME: Nathan Tsai, Regan Hsu
+EMAIL: nwtsai@gmail.com, hsuregan@ucla.edu
+ID: 304575323, 604296090
+
+Slip Days:
+Use 1 slip day from Nathan Tsai and 1 slip day from Regan Hsu for a total of 2 slip days
+
+Included Files:
+lab3a.c --> Source code written in C that analyzes a given file system image and prints formatted output to stdout describing the specified information requested by project specifications
+ext2_fs.h --> The header file provided by the specification that defines structs for convenient access to filesystem metadata
+Makefile --> A Makefile with the targets default (compiles lab3a.c into the executable lab3a), dist (creates the tarball submission), and clean (removes all files created by the Makefile)
+README --> A text file that includes each person's name, email, and ID, and contains information about the included files in the submission tarball and cites links for all research done for this project, and also lists if a student uses slip days
+
+Research Links:
+Learning how to use debugfs - http://man7.org/linux/man-pages/man8/debugfs.8.html
+Learning about pread - http://man7.org/linux/man-pages/man2/pread.2.html
+Learning about EXT2 - http://www.nongnu.org/ext2-doc/ext2.html
+Using strftime to convert epoch time to formatted time - http://man7.org/linux/man-pages/man3/strftime.3.html

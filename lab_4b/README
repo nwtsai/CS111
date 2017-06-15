@@ -1,0 +1,27 @@
+NAME: Nathan Tsai
+EMAIL: nwtsai@gmail.com
+ID: 304575323
+
+Included Files:
+lab4b.c --> Source code written in C that communicates with the real world by utilizing sensors to sample the current temperature of its surrounding environment. Users who run this program can run the program with a logfile option (logs all data and user input to a logfile of their choice), a periods option (the time between each temperature reading), and a scale option (whether the data is in Celsius or Fahrenheit)
+Makefile --> A file that allows for quick compiling and testing. Targets include default (compiles C program to create executable), check (runs a smoke-test to check some test cases for regular and irregular inputs), dist (creates a tarball of all of the deliverables), and clean (removes the program executable and the tarball created by the Makefile)
+README --> Describes the student's name, email, and ID, as well as all the files included in the tarball. Research links are also listed at the bottom of the README
+check.sh --> This is the test script that the make check target in the Makefile runs. It covers simple test cases for file creation, exit codes, and invalid inputs for the period and scale options
+
+"make check" test cases in check.sh:
+NORMAL CASE --> checking if the OFF command results in an exit code of 0 and a successful termination of the program
+NON-NUMERICAL PERIOD LONG OPTION ARGUMENT --> checking if a non-numerical option passed into --period= returns with exit code 1 and terminates the program with an error message
+NEGATIVE PERIOD LONG OPTION ARGUMENT --> checking if a negative option passed into --period= returns with exit code 1 and terminates the program with an error message
+INVALID SCALE LONG OPTION ARGUMENT --> checking if --scale=X where X does not equal 'C' or 'F' returns with exit code 1 and terminates the program with an error message
+CHECK IF A LOGFILE IS SUCCESSFULLY CREATED --> checking if --log=filename successfully creates a file with the correct name in the immediate directory
+UNRECOGNIZED LONG OPTION --> checking if passing in an unrecognized long option returns with exit code 1 and terminates the program with an error message
+UNRECOGNIZED STDIN COMMAND --> checking if passing an unrecognized STDIN command returns with exit code 1 and terminates the program with an error message
+NON-NUMERICAL PERIOD STDIN COMMAND --> checking if passing in a non-numerical period as an STDIN command returns with exit code 1 and terminates the program with an error message
+NEGATIVE PERIOD STDIN COMMAND --> checking if passing in a negative period as an STDIN command returns with exit code 1 and terminates the program with an error message
+
+Research Links:
+Silencing output in a bash script: http://stackoverflow.com/questions/2292847/how-to-silence-output-in-a-bash-script
+Copying a string to create a substring: http://man7.org/linux/man-pages/man3/strcpy.3.html
+How to format floating point: http://www.dummies.com/programming/c/how-to-format-with-printf-in-c-programming/
+Grove Temperature Sensor: http://wiki.seeed.cc/Grove-Temperature_Sensor_V1.2/
+MRAA Library: https://iotdk.intel.com/docs/master/mraa/

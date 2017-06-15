@@ -1,0 +1,14 @@
+NAME: Nathan Tsai
+EMAIL: nwtsai@gmail.com
+ID: 304575323
+
+Included Files:
+lab1b-client.c  --> source code for the client, in charge of taking input from keyboard, encrypting the message if necessary, outputting it to a screen/logfile, and sending it to the server via a TCP connection
+lab1b-server.c  --> source code for the server, in charge of taking input from the client, decrypting the message if necessary, sending it to the shell (child process), and sending results back to client
+Makefile        --> uses targets to make (compile program), clean (remove files that Makefile creates), and dist (tarballs files for submission)
+README          --> documents name, email, id, included files, and research materials
+my.key          --> the key used to ensure that the encryption and decryption follows the same algorithm
+
+Research Links:
+Understanding the kill() command: https://linux.die.net/man/3/kill
+Learning how to apply specific encryption algorithms with mcrypt: http://mcrypt.hellug.gr/lib/mcrypt.3.html

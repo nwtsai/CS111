@@ -1,0 +1,12 @@
+NAME: Nathan Tsai
+EMAIL: nwtsai@gmail.com
+ID: 304575323
+
+Included Files:
+lab4c_tcp.c --> Source code written in C that communicates with the real world by utilizing sensors to sample the current temperature of its surrounding environment. Commands are sent by the server via an established TCP connection, and output is sent back to the server.
+lab4c_tls.c --> Source code written in C that communicates with the real world by utilizing sensors to sample the current temperature of its surrounding environment. Commands are sent by the server via an established SSL connection, and output is sent back to the server.
+Makefile --> A file that allows for quick compiling and testing. Targets include default (compiles C program to create executable), dist (creates a tarball of all of the deliverables), and clean (removes the program executables and the tarball created by the Makefile)
+README --> Describes the student's name, email, and ID, as well as all the files included in the tarball. Research links are also listed at the bottom of the README.
+
+Research Links:
+SSL documentation: https://www.openssl.org/docs/manmaster/man7/ssl.html

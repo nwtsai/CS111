@@ -1,0 +1,13 @@
+NAME: Nathan Tsai
+EMAIL: nwtsai@gmail.com
+ID: 304575323
+
+Included Files:
+lab1a.c  --> source code for this project, written in C
+Makefile --> uses targets to make (compile program), clean (remove files that Makefile creates), and dist (tarballs files for submission)
+README   --> documents name, email, id, included files, and research materials
+
+Research Links:
+To help understand poll(): http://www.unixguide.net/unix/programming/2.1.2.shtml
+How to use waitpid(): https://support.sas.com/documentation/onlinedoc/sasc/doc/lr2/waitpid.htm
+Understanding the kill() command: https://linux.die.net/man/3/kill

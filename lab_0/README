@@ -1,0 +1,27 @@
+NAME: Nathan Tsai
+EMAIL: nwtsai@gmail.com
+ID: 304575323
+
+Included Files:
+lab0.c (source code written in C)
+Makefile (shortcuts for making a tarball, checking the program's correctness, cleaning the directory, and compiling the source code)
+README (lists the included files, the smoke test description, and research links used for this lab)
+breakpoint.png (showing a breakpoint and variable inspection)
+backtrace.png (showing a segfault and associated stack-trace)
+
+Smoke Test:
+Make sure all the exit codes are correct for each case listed below
+Test cases for the 'make check' smoke-test: runCatchTest, runOpenTest, runCreatTest, runNormalTest, runInvalidOPTest, runComparisonTest:
+
+1. runCatchTest      - I wanted to check if the handler would catch the segmentation fault when specified in the options and exit with a return code of 4
+2. runOpenTest       - I wanted to check if the program would exit with a return code of 2 given a file without read permissions
+3. runCreatTest      - I wanted to check if the program would exit with a return code of 3 given a file without write permissions
+4. runNormalTest     - I wanted to check if the program would exit with a return code of 0 after completing the read and write functionality
+5. runInvalidOPTest  - I wanted to check if the program would exit with a return code of 1 if an invalid option was detected
+6. runComparisonTest - I wanted to check if the output file was identical to the input file after given valid parameters
+
+Research:
+https://linuxprograms.wordpress.com/2012/06/22/c-getopt_long-example-accessing-command-line-arguments/
+    Used this to see an example of using the getopt_long API
+http://web.cs.ucla.edu/classes/spring17/cs111/projects/fd_juggling.html
+    This was given in the spec, example of file descriptors and how to do Input/Output Redirection

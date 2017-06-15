@@ -1,0 +1,11 @@
+NAME: Nathan Tsai, Regan Hsu
+EMAIL: nwtsai@gmail.com, hsuregan@ucla.edu
+ID: 304575323, 604296090
+
+Included Files:
+lab3b.py --> Source code written in Python2 that analyzes a possibly corrupted file system image and prints formatted inconsistencies to stdout describing the specified information requested by project specifications
+Makefile --> A Makefile with the targets default (copies lab3b.py to an executable called lab3b), dist (creates the tarball submission), and clean (removes all files created by the Makefile)
+README --> A text file that includes each person's name, email, and ID, and contains information about the included files in the submission tarball and cites links for all research done for this project
+
+Research Links:
+Python Datastructures -> https://docs.python.org/3/tutorial/datastructures.html

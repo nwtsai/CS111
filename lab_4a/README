@@ -1,0 +1,13 @@
+NAME: Nathan Tsai
+EMAIL: nwtsai@gmail.com
+ID: 304575323
+
+Serial number: cu.usbserial-A903OUMW
+WiFi MAC Address of Edison: 90:b6:86:12:ef:a4
+
+Included Files:
+selfie.jpg - A selfie of me with my assembled Edison
+ifconfig.png - A screenshot of the command ifconfig after setting up my board's name, password, and WiFi
+scp.png - A screenshot of a successful scp of my hello.c program from laptop to Edison
+hello.png - A screenshot of compiling and running my hello.c program on the Edison
+git.png - A screenshot of trying to download git and successfully git cloning an existing repository 
